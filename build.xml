@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- WARNING: Eclipse auto-generated file.
+              Any modifications will be overwritten.
+              To include a user specific buildfile here, simply create one in the same
+              directory with the processing instruction <?eclipse.ant.import?>
+              as the first entry and export the buildfile again. -->
+<project basedir="." default="build" name="Project4">
+	<property environment="env" />
+	<property name="ECLIPSE_HOME" value="../../../../../../../../../Downloads/eclipse-java-2023-06-R-win32-x86_64/eclipse/" />
+	<property name="junit.output.dir" value="junit" />
+	<property name="debuglevel" value="source,lines,vars" />
+	<property name="target" value="17" />
+	<property name="source" value="17" />
+	<path id="JUnit 5.libraryclasspath">
+		<pathelement location="${ECLIPSE_HOME}plugins/junit-jupiter-api_5.10.0.jar" />
+		<pathelement location="${ECLIPSE_HOME}plugins/junit-jupiter-engine_5.10.0.jar" />
+		<pathelement location="${ECLIPSE_HOME}plugins/junit-jupiter-migrationsupport_5.10.0.jar" />
+		<pathelement location="${ECLIPSE_HOME}plugins/junit-jupiter-params_5.10.0.jar" />
+		<pathelement location="${ECLIPSE_HOME}plugins/junit-platform-commons_1.10.0.jar" />
+		<pathelement location="${ECLIPSE_HOME}plugins/junit-platform-engine_1.10.0.jar" />
+		<pathelement location="${ECLIPSE_HOME}plugins/junit-platform-launcher_1.10.0.jar" />
+		<pathelement location="${ECLIPSE_HOME}plugins/junit-platform-runner_1.10.0.jar" />
+		<pathelement location="${ECLIPSE_HOME}plugins/junit-platform-suite-api_1.10.0.jar" />
+		<pathelement location="${ECLIPSE_HOME}plugins/junit-platform-suite-engine_1.10.0.jar" />
+		<pathelement location="${ECLIPSE_HOME}plugins/junit-platform-suite-commons_1.10.0.jar" />
+		<pathelement location="${ECLIPSE_HOME}plugins/junit-vintage-engine_5.10.0.jar" />
+		<pathelement location="${ECLIPSE_HOME}plugins/org.opentest4j_1.3.0.jar" />
+		<pathelement location="${ECLIPSE_HOME}plugins/org.apiguardian.api_1.1.2.jar" />
+		<pathelement location="${ECLIPSE_HOME}plugins/org.junit_4.13.2.v20230809-1000.jar" />
+		<pathelement location="${ECLIPSE_HOME}plugins/org.hamcrest_2.2.0.jar" />
+		<pathelement location="${ECLIPSE_HOME}plugins/org.hamcrest.core_2.2.0.v20230809-1000.jar" />
+	</path>
+	<path id="Project4.classpath">
+		<pathelement location="bin" />
+		<path refid="JUnit 5.libraryclasspath" />
+	</path>
+	<path id="run.Program.classpath">
+		<path refid="Project4.classpath" />
+		<path refid="JUnit 5.libraryclasspath" />
+	</path>
+	<path id="run.VishakTest.classpath">
+		<path refid="Project4.classpath" />
+		<path refid="JUnit 5.libraryclasspath" />
+	</path>
+	<target name="init">
+		<mkdir dir="bin" />
+		<copy includeemptydirs="false" todir="bin">
+			<fileset dir="src">
+				<exclude name="**/*.launch" />
+				<exclude name="**/*.xtend" />
+				<exclude name="**/*.java" />
+			</fileset>
+		</copy>
+	</target>
+	<target name="clean">
+		<delete dir="bin" />
+	</target>
+	<target depends="clean" name="cleanall" />
+	<target depends="build-subprojects,build-project" name="build" />
+	<target name="build-subprojects" />
+	<target depends="init" name="build-project">
+		<echo message="${ant.project.name}: ${ant.file}" />
+		<javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
+			<src path="src" />
+			<classpath refid="Project4.classpath" />
+		</javac>
+	</target>
+	<target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects" />
+	<target description="copy Eclipse compiler jars to ant lib directory" name="init-eclipse-compiler">
+		<copy todir="${ant.library.dir}">
+			<fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar" />
+		</copy>
+		<unzip dest="${ant.library.dir}">
+			<patternset includes="jdtCompilerAdapter.jar" />
+			<fileset dir="${ECLIPSE_HOME}/plugins" includes="org.eclipse.jdt.core_*.jar" />
+		</unzip>
+	</target>
+	<target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
+		<property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter" />
+		<antcall target="build" />
+	</target>
+	<target name="Program">
+		<java classname="project4.Program" failonerror="true" fork="yes">
+			<classpath refid="run.Program.classpath" />
+		</java>
+	</target>
+	<target name="VishakTest">
+		<mkdir dir="${junit.output.dir}" />
+		<junit fork="yes" printsummary="withOutAndErr">
+			<formatter type="xml" />
+			<test name="project4.junit.VishakTest" todir="${junit.output.dir}" />
+			<jvmarg line="-ea" />
+			<classpath refid="run.VishakTest.classpath" />
+		</junit>
+	</target>
+	<target name="junitreport">
+		<junitreport todir="${junit.output.dir}">
+			<fileset dir="${junit.output.dir}">
+				<include name="TEST-*.xml" />
+			</fileset>
+			<report format="frames" todir="${junit.output.dir}" />
+		</junitreport>
+	</target>
+	<target name="createJar">
+		<jar destfile="release/project4Jar.jar">
+			<fileset dir="bin/" includes="**/*.class">
+			</fileset>
+			<manifest>
+				<attribute name="Main-Class" value="project4.Program" />
+			</manifest>
+		</jar>
+	</target>
+</project>
