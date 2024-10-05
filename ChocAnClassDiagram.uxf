@@ -1,0 +1,201 @@
+<diagram program="umletino" version="15.1"><zoom_level>8</zoom_level><element><id>UMLClass</id><coordinates><x>1008</x><y>512</y><w>200</w><h>88</h></coordinates><panel_attributes>/OperatorTerminal/
+--
+-input: Scanner
+--
+-OperatorTerminal(ManageRecords)
+-add(string, ManageRecords) : void
+-modify(string, int, ManageRecords) : void
+-delete(string, int, ManageRecords) : void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1200</x><y>400</y><w>104</w><h>136</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;150;50;150;50;10;110;10</additional_attributes></element><element><id>UMLClass</id><coordinates><x>984</x><y>280</y><w>232</w><h>168</h></coordinates><panel_attributes>/ManageRecords/
+--
+-memberRecords : Vector&lt;MemberRecord&gt;
+-providerRecords : Vector&lt;MemberRecord&gt;
+--
++addMember(MemberRecord, int, string) : void
++deleteMember(MemberRecord, int, string) : void
++addProvider(ProviderRecord, int) : void
++deleteProvider(ProviderRecord, int) : void
++returnMemberRecord(int) : MemberRecord
++returnProviderRecord(int) : ProviderRecord
+-searchMember(int) : int
+-searchProvider(int): int
++returnMemberRecordSize() : int
++returnProviderRecordSize() : int</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1280</x><y>568</y><w>168</w><h>104</h></coordinates><panel_attributes>/ProviderRecord/
+--
+-input: Scanner
+-service : Vector&lt;ProviderForm&gt;
+--
++ProviderRecord(ManageRecords)
++addInfo(ProviderForm) : void
++deleteInfo() : void
++returnInfo(int) : ProviderForm
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1200</x><y>528</y><w>96</w><h>96</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;10;50;10;50;100;100;100</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1568</x><y>416</y><w>168</w><h>248</h></coordinates><panel_attributes>/Record/
+--
+-name : string
+-memberNumber : int
+-streetAddress : string
+-city : string
+-state : string
+-zipCode : int
+--
++setName(string) : void
++returnName() : string
++setMemberNumber(int) : void
++returnMemberNumber() : int
++setStreetAddress(string) : void
++returnStreetAddress() : string
++setCity(string) : void
++returnCity() : string
++setState(string) : void
++returnState() : void
++setZipCode(int) : void
++returnZipCode() : int
+
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1448</x><y>432</y><w>136</w><h>96</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>150;100;70;100;70;10;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1440</x><y>504</y><w>144</w><h>128</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>160;10;80;10;80;140;10;140</additional_attributes></element><element><id>UMLClass</id><coordinates><x>1288</x><y>360</y><w>168</w><h>152</h></coordinates><panel_attributes>/MemberRecord/
+--
+-verify: Authenticator 
+-service : Vector&lt;ServiceRecord&gt;
+-status : string
+--
++MemberRecord(ManageRecords)
++addService(ServiceRecord) : void
++deleteService(ServiceRecord) : void
++modifyStaus(string) : void
++returnService(int) : ServiceRecord
++returnStatus(): string</panel_attributes><additional_attributes></additional_attributes></element><element><id>Text</id><coordinates><x>1240</x><y>408</y><w>80</w><h>56</h></coordinates><panel_attributes>1
+style=wordwrap</panel_attributes><additional_attributes></additional_attributes></element><element><id>Text</id><coordinates><x>1208</x><y>504</y><w>80</w><h>56</h></coordinates><panel_attributes>0..*
+style=wordwrap</panel_attributes><additional_attributes></additional_attributes></element><element><id>Text</id><coordinates><x>1208</x><y>536</y><w>80</w><h>56</h></coordinates><panel_attributes>0..*
+style=wordwrap</panel_attributes><additional_attributes></additional_attributes></element><element><id>Text</id><coordinates><x>1264</x><y>592</y><w>80</w><h>56</h></coordinates><panel_attributes>1
+style=wordwrap</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1096</x><y>440</y><w>24</w><h>88</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;90;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>1208</x><y>352</y><w>128</w><h>232</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;10;60;10;60;210;140;210;140;270</additional_attributes></element><element><id>Text</id><coordinates><x>1296</x><y>552</y><w>80</w><h>56</h></coordinates><panel_attributes>0..*
+style=wordwrap</panel_attributes><additional_attributes></additional_attributes></element><element><id>Text</id><coordinates><x>1224</x><y>344</y><w>80</w><h>56</h></coordinates><panel_attributes>1
+style=wordwrap</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1208</x><y>320</y><w>128</w><h>56</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;10;140;10;140;50</additional_attributes></element><element><id>Text</id><coordinates><x>1320</x><y>344</y><w>80</w><h>56</h></coordinates><panel_attributes>0..*
+style=wordwrap</panel_attributes><additional_attributes></additional_attributes></element><element><id>Text</id><coordinates><x>1216</x><y>312</y><w>80</w><h>56</h></coordinates><panel_attributes>1
+style=wordwrap</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>768</x><y>448</y><w>232</w><h>160</h></coordinates><panel_attributes>/ProviderTerminal/
+--
+-verify: Authenticator 
+-providerNumber : int
+-memberName: string
+-memberNumber : int
+--
++verifyMember(int, ManageRecords) : string
++verifyProvider(int, ManageRecords) : boolean
++ProviderTerminal(ManageRecords)
++addToServiceRecord(ServiceRecord) : void
++addToProviderForm(ProviderForm) : void
++lookUpProviderDirectory(string, ProviderRecord) : string
++billChocAn(ServiceRecord) : double</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>760</x><y>80</y><w>208</w><h>328</h></coordinates><panel_attributes>/ServiceRecord/
+--
+-dateOfService : Date
+-dateAndTimeDataRecieved : Date
+-providerNumber : int
+-memberName : string
+-memberNumber : int
+-serviceCode : int
+-serviceComment : string
+-feeToBePaid : double
+--
+-lookUpCode(int) : string
++ServiceRecord(ManageRecords)
++setDateOfService(string) : void
++setDateAndTimeDataRecieved(string) : void
++setProviderNumber(int) : void
++setMemberNumber(int) : void
++setServiceName(string) : void
++setFeeToBePaid(double) : void
++setServiceComment(string) : void
++returnDateOfService() : string
++returnDateAndTimeDataRecieved() : string
++returnProviderNumber() : int
++returnMemberNumber() : int
++returnServiceName() : string
++returnFeeToBePaid() : double
++returnServiceComment() : string
++displayErrorMessage() : string
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>960</x><y>208</y><w>432</w><h>168</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>520;190;520;10;10;10</additional_attributes></element><element><id>Text</id><coordinates><x>968</x><y>216</y><w>80</w><h>56</h></coordinates><panel_attributes>0..*
+style=wordwrap</panel_attributes><additional_attributes></additional_attributes></element><element><id>Text</id><coordinates><x>1376</x><y>344</y><w>80</w><h>56</h></coordinates><panel_attributes>1
+style=wordwrap</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>760</x><y>648</y><w>208</w><h>280</h></coordinates><panel_attributes>/ProviderForm/
+--
+-dateOfService : Date
+-dateAndTimeDataRecieved : Date
+-providerNumber : int
+-memberName : string
+-memberNumber : int
+-serviceCode : int
+-feeToBePaid : double
+--
++ProviderForm(string)
++setDateOfService(string) : void
++setDateAndTimeDataRecieved(string) : void
++setProviderNumber(int) : void
++setMemberNumber(int) : void
++setServiceName(string) : void
++setFeeToBePaid(double) : void
++setServiceComment(string) : void
++returnDateOfService() : string
++returnDateAndTimeDataRecieved() : string
++returnProviderNumber() : int
++returnMemberNumber() : int
++returnServiceName() : string
++returnFeeToBePaid() : double
++returnServiceComment() : string
+</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>856</x><y>400</y><w>24</w><h>64</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;60;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>856</x><y>600</y><w>24</w><h>64</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;60</additional_attributes></element><element><id>Relation</id><coordinates><x>960</x><y>632</y><w>336</w><h>88</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;90;50;90;50;10;400;10</additional_attributes></element><element><id>Text</id><coordinates><x>968</x><y>704</y><w>80</w><h>16</h></coordinates><panel_attributes>0..*
+style=wordwrap</panel_attributes><additional_attributes></additional_attributes></element><element><id>Text</id><coordinates><x>1856</x><y>520</y><w>88</w><h>56</h></coordinates><panel_attributes>1
+style=wordwrap</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>400</x><y>488</y><w>200</w><h>80</h></coordinates><panel_attributes>/ManagerTerminal/
+--
+-input : Scanner
+-reportType : string
+--
++ManagerTerminal(ManageRecords)
+-printReport(string) : void</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>400</x><y>368</y><w>200</w><h>64</h></coordinates><panel_attributes>/Timer/
+--
+-date : Date
+--
++runAccountingProcedure(Date)
++validateDate(Date) : boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>488</x><y>424</y><w>24</w><h>80</h></coordinates><panel_attributes>lt=&lt;&lt;-</panel_attributes><additional_attributes>10;10;10;80</additional_attributes></element><element><id>UMLClass</id><coordinates><x>80</x><y>296</y><w>200</w><h>64</h></coordinates><panel_attributes>/MemberReport/
+--
+-date : Date
+--
++validateDate(Date) : boolean
++printReport(MemberRecord) : boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>80</x><y>440</y><w>200</w><h>64</h></coordinates><panel_attributes>/ProviderReport/
+--
+-date : Date
+--
++validateDate(Date) : boolean
++printReport(ProviderRecord) : boolean</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>272</x><y>400</y><w>144</w><h>88</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;90;40;90;40;10;160;10</additional_attributes></element><element><id>Relation</id><coordinates><x>272</x><y>336</y><w>144</w><h>64</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;10;50;10;50;60;160;60</additional_attributes></element><element><id>Text</id><coordinates><x>280</x><y>472</y><w>80</w><h>56</h></coordinates><panel_attributes>0..*
+style=wordwrap</panel_attributes><additional_attributes></additional_attributes></element><element><id>Text</id><coordinates><x>384</x><y>408</y><w>80</w><h>56</h></coordinates><panel_attributes>1
+style=wordwrap</panel_attributes><additional_attributes></additional_attributes></element><element><id>Text</id><coordinates><x>280</x><y>328</y><w>80</w><h>56</h></coordinates><panel_attributes>0..*
+style=wordwrap</panel_attributes><additional_attributes></additional_attributes></element><element><id>Text</id><coordinates><x>384</x><y>368</y><w>80</w><h>56</h></coordinates><panel_attributes>1
+style=wordwrap</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>224</x><y>496</y><w>1152</w><h>520</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;10;10;630;1420;630;1420;220</additional_attributes></element><element><id>Text</id><coordinates><x>232</x><y>504</y><w>80</w><h>56</h></coordinates><panel_attributes>1
+style=wordwrap</panel_attributes><additional_attributes></additional_attributes></element><element><id>Text</id><coordinates><x>1360</x><y>672</y><w>80</w><h>56</h></coordinates><panel_attributes>0..*
+style=wordwrap</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>272</x><y>0</y><w>1176</w><h>376</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;390;40;390;40;10;1450;20;1450;450</additional_attributes></element><element><id>Text</id><coordinates><x>1432</x><y>344</y><w>80</w><h>56</h></coordinates><panel_attributes>0..*
+style=wordwrap</panel_attributes><additional_attributes></additional_attributes></element><element><id>Text</id><coordinates><x>280</x><y>312</y><w>80</w><h>56</h></coordinates><panel_attributes>1
+style=wordwrap</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>376</x><y>88</y><w>200</w><h>72</h></coordinates><panel_attributes>/MainProgram/
+--
+-input : Scanner
+--
++main(String[]) : static void
++executePersonTerminal(ManageRecords)</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>480</x><y>152</y><w>24</w><h>232</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;10;10;270</additional_attributes></element><element><id>Relation</id><coordinates><x>536</x><y>152</y><w>96</w><h>376</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;10;10;50;100;50;100;450;80;450</additional_attributes></element><element><id>Text</id><coordinates><x>488</x><y>160</y><w>80</w><h>56</h></coordinates><panel_attributes>1
+style=wordwrap</panel_attributes><additional_attributes></additional_attributes></element><element><id>Text</id><coordinates><x>472</x><y>352</y><w>72</w><h>56</h></coordinates><panel_attributes>1
+style=wordwrap</panel_attributes><additional_attributes></additional_attributes></element><element><id>Text</id><coordinates><x>544</x><y>160</y><w>72</w><h>56</h></coordinates><panel_attributes>1
+style=wordwrap</panel_attributes><additional_attributes></additional_attributes></element><element><id>Text</id><coordinates><x>600</x><y>496</y><w>72</w><h>56</h></coordinates><panel_attributes>1
+style=wordwrap</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>568</x><y>112</y><w>216</w><h>424</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;10;10;290;190;290;190;510;250;510</additional_attributes></element><element><id>Text</id><coordinates><x>576</x><y>160</y><w>72</w><h>56</h></coordinates><panel_attributes>1
+style=wordwrap</panel_attributes><additional_attributes></additional_attributes></element><element><id>Text</id><coordinates><x>752</x><y>520</y><w>80</w><h>56</h></coordinates><panel_attributes>1
+style=wordwrap</panel_attributes><additional_attributes></additional_attributes></element><element><id>Text</id><coordinates><x>576</x><y>104</y><w>72</w><h>56</h></coordinates><panel_attributes>1
+style=wordwrap</panel_attributes><additional_attributes></additional_attributes></element><element><id>Text</id><coordinates><x>1104</x><y>600</y><w>72</w><h>56</h></coordinates><panel_attributes>1
+style=wordwrap</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>568</x><y>112</y><w>552</w><h>864</h></coordinates><panel_attributes>lt=-</panel_attributes><additional_attributes>10;10;140;10;140;1060;670;1060;670;620</additional_attributes></element><element><id>UMLClass</id><coordinates><x>0</x><y>624</y><w>168</w><h>104</h></coordinates><panel_attributes>/EFT/
+--
+- providerName : string
+- providerNumber : int
+- amount : double
+- fileName : string
+--
++setAmount(double) : void
++printData(string, int, double) : void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>112</x><y>496</y><w>24</w><h>144</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;10;10;160</additional_attributes></element><element><id>Text</id><coordinates><x>120</x><y>504</y><w>80</w><h>56</h></coordinates><panel_attributes>1
+style=wordwrap</panel_attributes><additional_attributes></additional_attributes></element><element><id>Text</id><coordinates><x>104</x><y>608</y><w>80</w><h>56</h></coordinates><panel_attributes>1
+style=wordwrap</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>1872</x><y>504</y><w>168</w><h>56</h></coordinates><panel_attributes>/Summary/
+--
+-summary : Vector&lt;Record&gt;
+--
+-printSummary() : void</panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>1728</x><y>520</y><w>160</w><h>32</h></coordinates><panel_attributes></panel_attributes><additional_attributes>10;20;180;20</additional_attributes></element><element><id>Text</id><coordinates><x>1736</x><y>536</y><w>80</w><h>56</h></coordinates><panel_attributes>0..*
+style=wordwrap</panel_attributes><additional_attributes></additional_attributes></element><element><id>Text</id><coordinates><x>1264</x><y>624</y><w>80</w><h>56</h></coordinates><panel_attributes>1
+style=wordwrap</panel_attributes><additional_attributes></additional_attributes></element></diagram>
